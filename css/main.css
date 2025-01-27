@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+img{
+    height: 10vh;
+    width: 7vw;
+}
+
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    background-color: purple;
+}
+
+form input[type="text"] {
+    height: 80px;
+    width: 300px;
+    text-align: center;
+    border: solid 4px plum;
+    border-radius: 10px;
+    visibility: hidden;
+}
+
+.introhead{
+    margin-bottom: 20px;
+}
+.container{
+    width: 750px;
+    height: 500px;
+}
+
+.header{
+    font-size: 1.2rem;
+    border: solid 2px #fff;
+    color: #fff;
+    background-color: #6b6262;
+    padding: 5px;
+    width: 80%;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.main-content{
+    width: 100%;
+    height: 300px;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 50px 40px;
+    box-shadow: 0 0 10px;
+
+}
+.main-content .person{
+    font-size: 1.6rem;
+    color: purple;
+    text-transform: uppercase;
+    margin-top: 40px;
+}
+
+.btn-area button{
+    background-color: #6b6262;
+    font-size: 1.3rem;
+    padding: 10px 15px;
+    margin-top: 40px;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.btn-area button:active{
+    background-color: aliceblue;
+}
+
+.instructions{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: greenyellow;
+}
+
+.enter-game{
+    border: solid 4px plum;
+    border-radius: 20px;
+    margin-top: 80px;
+    height: 50px;
+    width: 250px;
+}
+
+#board{
+    position: relative;
+   height: 90vh;
+   width: 90vw;
+   background-color:white;
+}
+
+#player{
+    position: absolute;
+    background-color: brown;
+}
+
+.obstacle{
+    position: absolute;
+    background-color: blueviolet;
+}
+
+#flags{
+    
+}
