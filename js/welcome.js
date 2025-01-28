@@ -22,28 +22,24 @@ const quotes = [
   {
     intro: "Welcome to France",
     country: "France",
-    flag: "flags/nigeria.jpg",
     capital: "Paris"
   },
 
   {
     intro: "Welcome to Portugal",
     country: "Portugal",
-    flag: "flags/nigeria.jpg",
-    capital: "Lisboa"
+    capital: "Lisbon"
   },
 
   {
     intro: "Welcome to Vietnam",
     country: "Vietnam",
-    flag: "flags/nigeria.jpg",
     capital: "Hanoi"
   },
 
   {
     intro: "Welcome to India",
     country: "India",
-    flag: "flags/nigeria.jpg",
     capital: "Delhi"
   },
 ];

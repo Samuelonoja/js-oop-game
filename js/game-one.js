@@ -4,35 +4,30 @@ const quotes = [
   {
     intro: "Welcome to Nigeria",
     country: "Nigeria",
-    flag: "./flags/flag_of_nigeria.png",
     capital: "Abuja"
   },
 
   {
     intro: "Welcome to France",
     country: "France",
-    flag: "./flags/flag_of_france.png",
     capital: "Paris"
   },
 
   {
     intro: "Welcome to Portugal",
     country: "Portugal",
-    flag: "./flags/flag_of_portugal.png",
     capital: "Lisbon"
   },
 
   {
     intro: "Welcome to Vietnam",
     country: "Vietnam",
-    flag: "./flags/flag-vietnam.png",
     capital: "Hanoi"
   },
 
   {
     intro: "Welcome to India",
     country: "India",
-    flag: "./flags/flag_of_india.png",
     capital: "Delhi"
   },
 ];
@@ -80,7 +75,7 @@ class Traveller {
     this.playerobj.style.height = this.height + "vh";
     this.playerobj.style.width = this.width + "vw";
     
-    this.playerobj.style.backgroundImage = "url(./flags/Plane.jpg)";
+    this.playerobj.style.backgroundImage = "url(./flags/Plane.png)";
     this.playerobj.style.backgroundSize = "cover";
   }
 
