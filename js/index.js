@@ -1,11 +1,11 @@
 const nameInput = document.getElementById("name");
 const playNow = document.querySelector(".enter-game");
 
-
 playNow.addEventListener("click", function () {
   nameInput.style.visibility = "visible";
   playNow.style.visibility = "hidden";
 });
+
 
 //let enteredName = "";
 nameInput.addEventListener("keydown", function (e) {
@@ -19,4 +19,3 @@ nameInput.addEventListener("keydown", function (e) {
     window.location.href = "welcome.html";
   }
 });
-
