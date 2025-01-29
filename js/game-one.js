@@ -59,10 +59,10 @@ secondChoice.forEach(function (element) {
 //testing player
 class Traveller {
   constructor() {
-    this.positionX = 30;
-    this.positionY = 0;
     this.width = 7;
     this.height = 10;
+    this.positionX = 45 - this.width/2;
+    this.positionY = 0;
 
     this.playerobj = document.getElementById("player");
     this.updateUi();

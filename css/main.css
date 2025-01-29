@@ -17,20 +17,38 @@ body {
   text-align: center;
   height: 100vh;
   background-color: purple;
+  /* background-image: url('../flags/travel_the_world.jpg');
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; */
 }
 
 form input[type="text"] {
   height: 80px;
   width: 300px;
   text-align: center;
-  border: solid 4px plum;
+  border: 1px solid yellowgreen;
+  border-radius: 20px;
   border-radius: 10px;
   visibility: hidden;
+  box-shadow: 1px 1px 30px 1px greenyellow;
 }
 
 .introhead {
   margin-bottom: 20px;
+  font-weight: bolder;
+  font-size: xx-large;
+  color: rgb(201, 211, 181);
+  border: 1px solid yellowgreen;
+  border-radius: 10px;
+  box-shadow: 1px 1px 30px 1px greenyellow;
 }
+#intro-header{
+  margin-top: 50px;
+  color: rgb(201, 211, 181);
+  text-shadow: 3px 3px 5px yellowgreen, -3px -3px 5px rgba(0, 0, 0, 0.8);
+}
+
 .container {
   width: 750px;
   height: 500px;
@@ -79,14 +97,21 @@ form input[type="text"] {
   margin-top: 50px;
   margin-bottom: 50px;
   color: greenyellow;
+  text-shadow: 3px 3px 5px yellowgreen, -3px -3px 5px rgba(0, 0, 0, 0.8);
 }
 
 .enter-game {
+  background-color: purple;
   border: solid 4px plum;
   border-radius: 20px;
   margin-top: 80px;
   height: 50px;
   width: 250px;
+  color: rgb(201, 211, 181);
+  border: 1px solid yellowgreen;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px 1px greenyellow;
+  text-shadow: 3px 3px 5px yellowgreen, -3px -3px 5px rgba(0, 0, 0, 0.8);
 }
 
 #board {

@@ -1,5 +1,10 @@
 const nameInput = document.getElementById("name");
 const playNow = document.querySelector(".enter-game");
+const gameInstruction = document.querySelector(".instructions");
+
+gameInstruction.addEventListener("click", function(){
+  window.open("hello")
+})
 
 playNow.addEventListener("click", function () {
   nameInput.style.visibility = "visible";
