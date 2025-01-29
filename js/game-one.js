@@ -34,7 +34,7 @@ const countriesData = [
 ];
 
 let points = 0;
-const leaderBoard = [];
+//const leaderBoard = [];
 let choice = [];
 
 const storedPerson = localStorage.getItem("capital");
@@ -79,12 +79,16 @@ class Traveller {
   }
 
   moveLeft() {
-    this.positionX--;
-    this.updateUi();
+    if(this.positionX > 0){
+      this.positionX--;
+      this.updateUi();
+    }
   }
   moveRight() {
-    this.positionX++;
-    this.updateUi();
+    if(this.positionX < 90 - this.width){
+      this.positionX++;
+      this.updateUi();
+    }
   }
 }
 
