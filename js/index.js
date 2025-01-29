@@ -1,9 +1,18 @@
 const nameInput = document.getElementById("name");
 const playNow = document.querySelector(".enter-game");
 const gameInstruction = document.querySelector(".instructions");
+const dialog = document.getElementById("dialog-container");
+const closeDialog = document.getElementById("close-dialog")
 
 gameInstruction.addEventListener("click", function(){
-  window.open("hello")
+  dialog.style.visibility = "visible";
+  playNow.style.visibility = "hidden";
+  
+})
+
+closeDialog.addEventListener("click", function(){
+  dialog.style.visibility = "hidden";
+  playNow.style.visibility = "visible";
 })
 
 playNow.addEventListener("click", function () {

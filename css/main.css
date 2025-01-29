@@ -131,5 +131,37 @@ form input[type="text"] {
   background-color: blueviolet;
 }
 
-#flags {
+#dialog-container{
+  display: flex;
+  position: relative;
+  justify-content: center; /* Center horizontally */
+  align-items: center; 
+  visibility: hidden;
+}
+
+#dialog{
+  display: flex;
+  justify-content: space-around;
+  background-color: purple;
+  font-size: large;
+  position: absolute;
+  padding: 20px;
+  height: 35vh;
+  width: 35vw;
+  border-radius: 10px;
+  color: rgb(201, 211, 181);
+  border: 1px solid yellowgreen;
+  border-radius: 10px;
+  box-shadow: 1px 1px 30px 1px greenyellow;
+  text-shadow: 3px 3px 5px yellowgreen, -3px -3px 5px rgba(0, 0, 0, 0.8);
+}
+
+#dialog p{
+  margin-top: 40px;
+}
+
+#close-dialog{
+  font-size: xx-large;
+  cursor: pointer;
+  color: red;
 }
