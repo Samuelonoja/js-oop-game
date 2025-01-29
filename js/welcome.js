@@ -1,8 +1,8 @@
-const quoteText = document.querySelector(".quote");
-const personName = document.querySelector(".person");
-const btn = document.querySelector("#qbtn");
+const introText = document.querySelector(".intro");
+const countryName = document.querySelector(".country");
+const btn = document.querySelector("#btn");
 const userName = document.getElementById("username");
-const allNames = document.getElementById("allnames");
+const allNames = document.getElementById("allUsersnames");
 
 window.addEventListener("DOMContentLoaded", (event) => {
   const savedName = localStorage.getItem("userName");
@@ -11,52 +11,45 @@ window.addEventListener("DOMContentLoaded", (event) => {
   }
 });
 
-const quotes = [
+const countriesData = [
   {
     intro: "Welcome to Nigeria",
     country: "Nigeria",
     flag: "flags/nigeria.jpg",
-    capital: "Abuja"
+    capital: "Abuja",
   },
 
   {
     intro: "Welcome to France",
     country: "France",
-    capital: "Paris"
+    capital: "Paris",
   },
 
   {
     intro: "Welcome to Portugal",
     country: "Portugal",
-    capital: "Lisbon"
+    capital: "Lisbon",
   },
 
   {
     intro: "Welcome to Vietnam",
     country: "Vietnam",
-    capital: "Hanoi"
+    capital: "Hanoi",
   },
 
   {
     intro: "Welcome to India",
     country: "India",
-    capital: "Delhi"
+    capital: "Delhi",
   },
 ];
 
-let random = Math.floor(Math.random() * quotes.length);
-quoteText.innerText = quotes[random].intro;
-personName.innerText = quotes[random].country;
-const selectedCapital = quotes[random].capital;
+let random = Math.floor(Math.random() * countriesData.length);
+introText.innerText = countriesData[random].intro;
+countryName.innerText = countriesData[random].country;
+const selectedCapital = countriesData[random].capital;
 
 btn.addEventListener("click", function () {
-  // let random = Math.floor(Math.random() * quotes.length);
-  // quoteText.innerText = quotes[random].quote;
-  // personName.innerText = quotes[random].person;
-
   localStorage.setItem("capital", selectedCapital);
-  const ex = localStorage.getItem("capital");
-  console.log(ex);
-
   window.location.href = "game-one.html";
 });

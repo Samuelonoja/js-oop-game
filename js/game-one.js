@@ -1,39 +1,40 @@
 const countryFlags = document.getElementById("flags");
 
-const quotes = [
+const countriesData = [
   {
     intro: "Welcome to Nigeria",
     country: "Nigeria",
-    capital: "Abuja"
+    flag: "flags/nigeria.jpg",
+    capital: "Abuja",
   },
 
   {
     intro: "Welcome to France",
     country: "France",
-    capital: "Paris"
+    capital: "Paris",
   },
 
   {
     intro: "Welcome to Portugal",
     country: "Portugal",
-    capital: "Lisbon"
+    capital: "Lisbon",
   },
 
   {
     intro: "Welcome to Vietnam",
     country: "Vietnam",
-    capital: "Hanoi"
+    capital: "Hanoi",
   },
 
   {
     intro: "Welcome to India",
     country: "India",
-    capital: "Delhi"
+    capital: "Delhi",
   },
 ];
 
 let points = 0;
-const leaderBoard = [{}];
+const leaderBoard = [];
 let choice = [];
 
 const storedPerson = localStorage.getItem("capital");
@@ -41,7 +42,7 @@ const playerName = localStorage.getItem("userName");
 choice.push(storedPerson);
 
 //using filter to add additional element to our choices array
-const secondChoice = quotes.filter(function (element, index) {
+const secondChoice = countriesData.filter(function (element, index) {
   return index < 2;
 });
 
@@ -53,9 +54,7 @@ secondChoice.forEach(function (element) {
     choice.push(people);
   }
 });
-console.log(choice);
-
-//countryFlags.append(choice)
+//console.log(choice);
 
 //testing player
 class Traveller {
@@ -74,7 +73,7 @@ class Traveller {
     this.playerobj.style.bottom = this.positionY + "vh";
     this.playerobj.style.height = this.height + "vh";
     this.playerobj.style.width = this.width + "vw";
-    
+
     this.playerobj.style.backgroundImage = "url(./flags/Plane.png)";
     this.playerobj.style.backgroundSize = "cover";
   }
@@ -88,16 +87,6 @@ class Traveller {
     this.updateUi();
   }
 }
-
-// HOW TO GET RANDOM ELEMENT FROM ARRAY
-//flagsArr[Math.floor(Math.random() * flagArray.length)]
-
-//create the Obstacle(flag) class
-// select a random flag
-// make it move down
-// detect collision
-// if collision with country selected in the main screen, point++ i.e
-// if collision with country that isn't the selected one, point-- i.e
 
 // Choice Obstacle Class
 class Obstacle {
@@ -121,8 +110,7 @@ class Obstacle {
 
     //this.obstacleElement.textContent = this.country;
     this.obstacleElement.style.backgroundImage = `url(./flags/${this.country}.png`;
-    this.obstacleElement.style.backgroundSize = 'cover';
-    
+    this.obstacleElement.style.backgroundSize = "cover";
 
     this.obstacleElement.style.width = this.width + "vw";
     this.obstacleElement.style.height = this.height + "vh";
@@ -153,53 +141,33 @@ setInterval(function () {
     myObstacleElements.moveDown();
 
     if (
-      myTraveller.positionX < myObstacleElements.positionX + myObstacleElements.width &&
-      myTraveller.positionX + myTraveller.width > myObstacleElements.positionX &&
-      myTraveller.positionY < myObstacleElements.positionY + myObstacleElements.height &&
-      myTraveller.positionY + myTraveller.height > myObstacleElements.positionY
-      && myObstacleElements.isActive === true
+      myTraveller.positionX <
+        myObstacleElements.positionX + myObstacleElements.width &&
+      myTraveller.positionX + myTraveller.width >
+        myObstacleElements.positionX &&
+      myTraveller.positionY <
+        myObstacleElements.positionY + myObstacleElements.height &&
+      myTraveller.positionY + myTraveller.height >
+        myObstacleElements.positionY &&
+      myObstacleElements.isActive === true
     ) {
-     
+      console.log(
+        "collision detected with " + myObstacleElements.country + "!!"
+      );
 
-      console.log("collision detected with " + myObstacleElements.country + "!!");
-      
-
-
-      if(myObstacleElements.country === storedPerson){
-        //Congratulation to next challenge
-        //myObstacleElements.isActive = true;
-        console.log("it works")
+      if (myObstacleElements.country === storedPerson) {
+        console.log("it works");
         points++;
         myObstacleElements.isActive = false;
-
-        // if(points> 5){
-        //   leaderBoard.push(
-        //     name: playerName,
-        //     "points": points,
-
-        //   )
-  
-        //   localStorage.setItem("leaderboard", leaderBoard);
-        //   window.location.href = "couy.html";
-        // }        
-      }
-
-      else{
+      } else {
         //Point-- (Note: let your points start increasing from when you randomly select a country)
-        if(points > 1)
-          points--;
+        if (points > 1) points--;
         myObstacleElements.isActive = false;
       }
-      console.log(points)
+      console.log(points);
     }
-
-
-    
-
   });
 }, 100);
-
-
 
 document.addEventListener("keydown", function (key) {
   if (key.code === "ArrowRight") {

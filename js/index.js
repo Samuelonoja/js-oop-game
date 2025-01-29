@@ -6,7 +6,6 @@ playNow.addEventListener("click", function () {
   playNow.style.visibility = "hidden";
 });
 
-
 //let enteredName = "";
 nameInput.addEventListener("keydown", function (e) {
   if (e.key === "Enter") {
