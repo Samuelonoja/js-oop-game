@@ -1,4 +1,5 @@
 const countryFlags = document.getElementById("flags");
+const displayPoint = document.getElementById("point")
 
 const countriesData = [
   {
@@ -34,6 +35,7 @@ const countriesData = [
 ];
 
 let points = 0;
+displayPoint.innerText = "Points:" + points;
 //const leaderBoard = [];
 let choice = [];
 
@@ -162,10 +164,13 @@ setInterval(function () {
       if (myObstacleElements.country === storedPerson) {
         console.log("it works");
         points++;
+        let displayPoint = document.getElementById("point");
+        displayPoint.innerText = "Points: " + points;
         myObstacleElements.isActive = false;
       } else {
         //Point-- (Note: let your points start increasing from when you randomly select a country)
         if (points > 1) points--;
+        displayPoint.innerText = "Points: " + points;
         myObstacleElements.isActive = false;
       }
       console.log(points);

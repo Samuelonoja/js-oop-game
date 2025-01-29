@@ -95,7 +95,6 @@ form input[type="text"] {
   background-color: #fff;
   border-radius: 15px;
   padding: 50px 40px;
-  box-shadow: 0 0 10px;
 }
 .main-content .country {
   font-size: 1.6rem;
@@ -150,6 +149,7 @@ form input[type="text"] {
 
 #player {
   position: absolute;
+  z-index: 99999999999999;
 }
 
 .obstacle {
@@ -174,7 +174,6 @@ form input[type="text"] {
   padding: 20px;
   height: auto;
   width: 35vw;
-  border-radius: 10px;
   color: rgb(201, 211, 181);
   border: 1px solid yellowgreen;
   border-radius: 10px;
@@ -190,4 +189,16 @@ form input[type="text"] {
   font-size: xx-large;
   cursor: pointer;
   color: red;
+}
+
+#point{
+  display: flex;
+  justify-content: start;
+  margin: 6vh;
+  font-size: 10vh;
+  font-weight: bolder;
+  color: rgb(201, 211, 181);
+  text-shadow: 1px 1px 1px purple, -1px -1px 1px rgba(0, 0, 0, 0.8);
+  position: absolute;
+  z-index: 99;
 }
