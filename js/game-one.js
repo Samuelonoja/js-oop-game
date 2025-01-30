@@ -148,14 +148,16 @@ class Obstacle {
 
 const myTraveller = new Traveller();
 
+//let gameComplete = false;
+
 const myObstaclesArr = [];
 
-setInterval(function () {
+let stopObstacle = setInterval(function () {
   const myObstacle = new Obstacle(choice);
   myObstaclesArr.push(myObstacle);
 }, 1000);
 
-setInterval(function () {
+let moveInterval = setInterval(function () {
   myObstaclesArr.forEach(function (myObstacleElements) {
     myObstacleElements.moveDown();
 
@@ -179,7 +181,13 @@ setInterval(function () {
         let displayPoint = document.getElementById("point");
         displayPoint.innerText = "Points: " + points;
         if(points===4){
-           alert("madeit")
+           gameComplete = document.getElementById("end-dialog-container")
+           clearInterval(moveInterval);
+           clearInterval(stopObstacle);
+           gameComplete.style.visibility = "visible";
+          //  clearInterval(intervalId);
+           //gameComplete = true;
+           //clearInterval(myObstacleElements.moveDown());
         }
         myObstacleElements.isActive = false;
       } else {
@@ -195,6 +203,11 @@ setInterval(function () {
     }
   });
 }, 30);
+
+homePage = document.getElementById("close-end-dialog");
+homePage.addEventListener("click", function(){
+  window.location.href = "index.html";
+})
 
 document.addEventListener("keydown", function (key) {
   if (key.code === "ArrowRight") {

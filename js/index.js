@@ -7,7 +7,7 @@ const closeDialog = document.getElementById("close-dialog")
 gameInstruction.addEventListener("click", function(){
   dialog.style.visibility = "visible";
   playNow.style.visibility = "hidden";
-  
+   
 })
 
 closeDialog.addEventListener("click", function(){
