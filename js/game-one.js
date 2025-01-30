@@ -196,7 +196,10 @@ let moveInterval = setInterval(function () {
         displayPoint.innerText = "Points: " + points;
         myObstacleElements.isActive = false;
         if(points === 0){
-           alert ("try again")
+          tryAgain = document.getElementById("try-dialog-container")
+          clearInterval(moveInterval);
+           clearInterval(stopObstacle);
+           tryAgain.style.visibility = "visible";
         }
       }
       console.log(points);
@@ -208,6 +211,13 @@ homePage = document.getElementById("close-end-dialog");
 homePage.addEventListener("click", function(){
   window.location.href = "index.html";
 })
+
+playAgain = document.getElementById("try-end-dialog");
+playAgain.addEventListener("click", function(){
+  window.location.href = "game-one.html";
+})
+
+
 
 document.addEventListener("keydown", function (key) {
   if (key.code === "ArrowRight") {

@@ -227,3 +227,29 @@ form input[type="text"] {
   font-size: 40px;
   cursor: pointer;
 }
+
+#try-dialog-container{
+  display: flex;
+  justify-content: center;
+  visibility: hidden;
+}
+
+#try-dialog{
+  position: relative;
+  background-color: purple;
+  font-size: large;
+  padding: 20px;
+  height: auto;
+  width: 30vw;
+  color: rgb(201, 211, 181);
+  border-radius: 20px;
+  z-index: 9999;
+}
+
+#try-end-dialog{
+  position: relative;
+  margin-top: 5vh;
+  font-size: 25px;
+  cursor: pointer;
+  z-index: 9009;
+}
