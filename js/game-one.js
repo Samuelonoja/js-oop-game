@@ -3,38 +3,38 @@ const displayPoint = document.getElementById("point")
 
 const countriesData = [
   {
-    intro: "Welcome to Nigeria",
+    intro: "You're going to explore...",
     country: "Nigeria",
     flag: "flags/nigeria.jpg",
     capital: "Abuja",
   },
 
   {
-    intro: "Welcome to France",
+    intro: "You're going to explore...",
     country: "France",
     capital: "Paris",
   },
 
   {
-    intro: "Welcome to Portugal",
+    intro: "You're going to explore...",
     country: "Portugal",
     capital: "Lisbon",
   },
 
   {
-    intro: "Welcome to Vietnam",
+    intro: "You're going to explore...",
     country: "Vietnam",
     capital: "Hanoi",
   },
 
   {
-    intro: "Welcome to India",
+    intro: "You're going to explore...",
     country: "India",
     capital: "Delhi",
   },
 ];
 
-let points = 0;
+let points = " "+2;
 displayPoint.innerText = "Points:" + points;
 //const leaderBoard = [];
 let choice = [];
@@ -79,7 +79,6 @@ class Traveller {
     this.playerobj.style.backgroundImage = "url(./flags/Plane.png)";
     this.playerobj.style.backgroundSize = "cover";
   }
-
   moveLeft() {
     if(this.positionX > 0){
       this.positionX--;
@@ -89,6 +88,18 @@ class Traveller {
   moveRight() {
     if(this.positionX < 90 - this.width){
       this.positionX++;
+      this.updateUi();
+    }
+  }
+  moveUp() {
+    if(this.positionY <= 80){
+      this.positionY++;
+      this.updateUi();
+    }
+  }
+  movePlayerDown() {
+    if(this.positionY > 0){
+      this.positionY--;
       this.updateUi();
     }
   }
@@ -140,7 +151,7 @@ const myObstaclesArr = [];
 setInterval(function () {
   const myObstacle = new Obstacle(choice);
   myObstaclesArr.push(myObstacle);
-}, 5000);
+}, 1000);
 
 setInterval(function () {
   myObstaclesArr.forEach(function (myObstacleElements) {
@@ -162,26 +173,37 @@ setInterval(function () {
       );
 
       if (myObstacleElements.country === storedPerson) {
-        console.log("it works");
         points++;
         let displayPoint = document.getElementById("point");
         displayPoint.innerText = "Points: " + points;
+        if(points===4){
+          alert("madeit")
+        }
         myObstacleElements.isActive = false;
       } else {
         //Point-- (Note: let your points start increasing from when you randomly select a country)
-        if (points > 1) points--;
+        if (points > 0) points--;
         displayPoint.innerText = "Points: " + points;
         myObstacleElements.isActive = false;
+        if(points === 0){
+          alert ("try again")
+        }
       }
       console.log(points);
     }
   });
-}, 100);
+}, 30);
 
 document.addEventListener("keydown", function (key) {
   if (key.code === "ArrowRight") {
     myTraveller.moveRight();
   } else if (key.code === "ArrowLeft") {
     myTraveller.moveLeft();
+  }
+  else if (key.code === "ArrowUp") {
+    myTraveller.moveUp();
+  }
+  else if (key.code === "ArrowDown") {
+    myTraveller.movePlayerDown();
   }
 });

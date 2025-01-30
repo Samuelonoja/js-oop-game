@@ -13,32 +13,32 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 const countriesData = [
   {
-    intro: "Welcome to Nigeria",
+    intro: "You're going to explore...",
     country: "Nigeria",
     flag: "flags/nigeria.jpg",
     capital: "Abuja",
   },
 
   {
-    intro: "Welcome to France",
+    intro: "You're going to explore...",
     country: "France",
     capital: "Paris",
   },
 
   {
-    intro: "Welcome to Portugal",
+    intro: "You're going to explore...",
     country: "Portugal",
     capital: "Lisbon",
   },
 
   {
-    intro: "Welcome to Vietnam",
+    intro: "You're going to explore...",
     country: "Vietnam",
     capital: "Hanoi",
   },
 
   {
-    intro: "Welcome to India",
+    intro: "You're going to explore...",
     country: "India",
     capital: "Delhi",
   },
