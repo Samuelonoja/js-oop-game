@@ -71,12 +71,11 @@ form input[type="text"] {
   height: 15vh;
   justify-content: center;
   align-items: center;
+  
 }
-
 .container{
   width: 45vw;
 }
-
 .container-inside{
   display: flex;
   justify-content: center;
@@ -86,19 +85,26 @@ form input[type="text"] {
   border: 1px solid yellowgreen;
   border-radius: 10px;
   box-shadow: 1px 1px 30px 1px greenyellow;
+  
 }
 
 .main-content {
   margin-top: 5vh;
   width: 80%;
   height: 40vh;
-  background-color: #fff;
+  color: rgb(201, 211, 181);
+  font-weight: bolder;
+  font-size: x-large;
   border-radius: 15px;
   padding: 50px 40px;
+  background-image: url('../flags/sky_plane.jpg');
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
 }
 .main-content .country {
-  font-size: 1.6rem;
-  color: purple;
+  font-size: 2.0rem;
+  color: rgb(222, 50, 222);
   text-transform: uppercase;
   margin-top: 40px;
 }
@@ -145,6 +151,10 @@ form input[type="text"] {
   background-color: white;
   overflow: hidden;
   border-radius: 20px;
+  background-image: url('../flags/night_flight.jpg');
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
 }
 
 #player {
@@ -198,7 +208,7 @@ form input[type="text"] {
   font-size: 10vh;
   font-weight: bolder;
   color: rgb(201, 211, 181);
-  text-shadow: 1px 1px 1px purple, -1px -1px 1px rgba(0, 0, 0, 0.8);
+  text-shadow: 1px 1px 1px yellowgreen, -1px -1px 1px rgba(0, 0, 0, 0.8);
   position: absolute;
   z-index: 99;
 }

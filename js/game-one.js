@@ -45,7 +45,7 @@ choice.push(storedPerson);
 
 //using filter to add additional element to our choices array
 const secondChoice = countriesData.filter(function (element, index) {
-  return index < 2;
+  return index < 3;
 });
 
 secondChoice.forEach(function (element) {
@@ -56,7 +56,7 @@ secondChoice.forEach(function (element) {
     choice.push(people);
   }
 });
-//console.log(choice);
+console.log(choice);
 
 //testing player
 class Traveller {
@@ -216,8 +216,6 @@ playAgain = document.getElementById("try-end-dialog");
 playAgain.addEventListener("click", function(){
   window.location.href = "game-one.html";
 })
-
-
 
 document.addEventListener("keydown", function (key) {
   if (key.code === "ArrowRight") {
