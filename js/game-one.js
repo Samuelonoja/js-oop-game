@@ -110,7 +110,9 @@ class Obstacle {
   constructor(choice) {
     this.width = 7;
     this.height = 10;
-    this.positionX = Math.floor(Math.random() * (100 - this.width + 1));
+    this.positionX = Math.floor(Math.random() * (90 - this.width + 1)); 
+    //this.positionX = 100 - this.width - 5;
+    
     this.positionY = 80;
     this.isActive = true;
 
@@ -177,7 +179,7 @@ setInterval(function () {
         let displayPoint = document.getElementById("point");
         displayPoint.innerText = "Points: " + points;
         if(points===4){
-          alert("madeit")
+           alert("madeit")
         }
         myObstacleElements.isActive = false;
       } else {
@@ -186,7 +188,7 @@ setInterval(function () {
         displayPoint.innerText = "Points: " + points;
         myObstacleElements.isActive = false;
         if(points === 0){
-          alert ("try again")
+           alert ("try again")
         }
       }
       console.log(points);
