@@ -4,6 +4,7 @@ const gameInstruction = document.querySelector(".instructions");
 const dialog = document.getElementById("dialog-container");
 const closeDialog = document.getElementById("close-dialog")
 
+//adding eventlisteners 
 gameInstruction.addEventListener("click", function(){
   dialog.style.visibility = "visible";
   playNow.style.visibility = "hidden";
@@ -20,7 +21,7 @@ playNow.addEventListener("click", function () {
   playNow.style.visibility = "hidden";
 });
 
-//let enteredName = "";
+//event listener for the input text field and storing the input locally
 nameInput.addEventListener("keydown", function (e) {
   if (e.key === "Enter") {
     e.preventDefault();

@@ -1,44 +1,14 @@
 const countryFlags = document.getElementById("flags");
-const displayPoint = document.getElementById("point")
+const displayPoint = document.getElementById("point");
 
-const countriesData = [
-  {
-    intro: "You're going to explore...",
-    country: "Nigeria",
-    flag: "flags/nigeria.jpg",
-    capital: "Abuja",
-  },
+//accesing the stored array
+const countriesData = JSON.parse(localStorage.getItem("countriesData")) || [];
 
-  {
-    intro: "You're going to explore...",
-    country: "France",
-    capital: "Paris",
-  },
-
-  {
-    intro: "You're going to explore...",
-    country: "Portugal",
-    capital: "Lisbon",
-  },
-
-  {
-    intro: "You're going to explore...",
-    country: "Vietnam",
-    capital: "Hanoi",
-  },
-
-  {
-    intro: "You're going to explore...",
-    country: "India",
-    capital: "Delhi",
-  },
-];
-
-let points = " "+2;
+let points = " " + 2;
 displayPoint.innerText = "Points:" + points;
-//const leaderBoard = [];
 let choice = [];
 
+//accessing the locally stored value and pushing it to our new array
 const storedPerson = localStorage.getItem("capital");
 const playerName = localStorage.getItem("userName");
 choice.push(storedPerson);
@@ -63,7 +33,7 @@ class Traveller {
   constructor() {
     this.width = 7;
     this.height = 10;
-    this.positionX = 45 - this.width/2;
+    this.positionX = 45 - this.width / 2;
     this.positionY = 0;
 
     this.playerobj = document.getElementById("player");
@@ -80,25 +50,25 @@ class Traveller {
     this.playerobj.style.backgroundSize = "cover";
   }
   moveLeft() {
-    if(this.positionX > 0){
+    if (this.positionX > 0) {
       this.positionX--;
       this.updateUi();
     }
   }
   moveRight() {
-    if(this.positionX < 90 - this.width){
+    if (this.positionX < 90 - this.width) {
       this.positionX++;
       this.updateUi();
     }
   }
   moveUp() {
-    if(this.positionY <= 80){
+    if (this.positionY <= 80) {
       this.positionY++;
       this.updateUi();
     }
   }
   movePlayerDown() {
-    if(this.positionY > 0){
+    if (this.positionY > 0) {
       this.positionY--;
       this.updateUi();
     }
@@ -110,9 +80,7 @@ class Obstacle {
   constructor(choice) {
     this.width = 7;
     this.height = 10;
-    this.positionX = Math.floor(Math.random() * (90 - this.width + 1)); 
-    //this.positionX = 100 - this.width - 5;
-    
+    this.positionX = Math.floor(Math.random() * (90 - this.width + 1));
     this.positionY = 80;
     this.isActive = true;
 
@@ -127,7 +95,6 @@ class Obstacle {
     this.obstacleElement = document.createElement("div");
     this.obstacleElement.className = "obstacle";
 
-    //this.obstacleElement.textContent = this.country;
     this.obstacleElement.style.backgroundImage = `url(./flags/${this.country}.png`;
     this.obstacleElement.style.backgroundSize = "cover";
 
@@ -148,15 +115,15 @@ class Obstacle {
 
 const myTraveller = new Traveller();
 
-//let gameComplete = false;
-
 const myObstaclesArr = [];
 
+//intervals for new obstacles instance
 let stopObstacle = setInterval(function () {
   const myObstacle = new Obstacle(choice);
   myObstaclesArr.push(myObstacle);
 }, 1000);
 
+//moving intervals and collision detection
 let moveInterval = setInterval(function () {
   myObstaclesArr.forEach(function (myObstacleElements) {
     myObstacleElements.moveDown();
@@ -180,14 +147,11 @@ let moveInterval = setInterval(function () {
         points++;
         let displayPoint = document.getElementById("point");
         displayPoint.innerText = "Points: " + points;
-        if(points===4){
-           gameComplete = document.getElementById("end-dialog-container")
-           clearInterval(moveInterval);
-           clearInterval(stopObstacle);
-           gameComplete.style.visibility = "visible";
-          //  clearInterval(intervalId);
-           //gameComplete = true;
-           //clearInterval(myObstacleElements.moveDown());
+        if (points === 4) {
+          gameComplete = document.getElementById("end-dialog-container");
+          clearInterval(moveInterval);
+          clearInterval(stopObstacle);
+          gameComplete.style.visibility = "visible";
         }
         myObstacleElements.isActive = false;
       } else {
@@ -195,11 +159,11 @@ let moveInterval = setInterval(function () {
         if (points > 0) points--;
         displayPoint.innerText = "Points: " + points;
         myObstacleElements.isActive = false;
-        if(points === 0){
-          tryAgain = document.getElementById("try-dialog-container")
+        if (points === 0) {
+          tryAgain = document.getElementById("try-dialog-container");
           clearInterval(moveInterval);
-           clearInterval(stopObstacle);
-           tryAgain.style.visibility = "visible";
+          clearInterval(stopObstacle);
+          tryAgain.style.visibility = "visible";
         }
       }
       console.log(points);
@@ -207,26 +171,26 @@ let moveInterval = setInterval(function () {
   });
 }, 30);
 
+//dialogs event listeners
 homePage = document.getElementById("close-end-dialog");
-homePage.addEventListener("click", function(){
+homePage.addEventListener("click", function () {
   window.location.href = "index.html";
-})
+});
 
 playAgain = document.getElementById("try-end-dialog");
-playAgain.addEventListener("click", function(){
+playAgain.addEventListener("click", function () {
   window.location.href = "game-one.html";
-})
+});
 
+//event listeners for keyboard directions
 document.addEventListener("keydown", function (key) {
   if (key.code === "ArrowRight") {
     myTraveller.moveRight();
   } else if (key.code === "ArrowLeft") {
     myTraveller.moveLeft();
-  }
-  else if (key.code === "ArrowUp") {
+  } else if (key.code === "ArrowUp") {
     myTraveller.moveUp();
-  }
-  else if (key.code === "ArrowDown") {
+  } else if (key.code === "ArrowDown") {
     myTraveller.movePlayerDown();
   }
 });
